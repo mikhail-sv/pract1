@@ -24,3 +24,19 @@ def delete_last_lines(filename, num_lines=1):
             file.writelines(new_lines)
     except FileNotFoundError:
         return "Файл не найден."
+
+def edit_line(filename, line_number, new_text):
+    """Изменение строки в текстовом файле."""
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+
+        if 0 < line_number <= len(lines):
+            lines[line_number - 1] = new_text + '\n'  # Заменяем строку
+            with open(filename, 'w', encoding='utf-8') as file:
+                file.writelines(lines)
+            return f"Строка {line_number} изменена."
+        else:
+            return "Номер строки вне диапазона."
+    except FileNotFoundError:
+        return "Файл не найден."
