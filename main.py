@@ -1,4 +1,5 @@
-from file_operations import read_file, write_file, delete_last_lines, search_line
+from file_operations import read_file, write_file, delete_last_lines, edit_line, search_line
+
 from utils import get_user_input
 
 def main():
@@ -28,6 +29,11 @@ def main():
             print("Результаты поиска:")
             for match in matches:
                 print(match.strip())
+        elif action == 'e':
+            line_number = int(input("Введите номер строки для изменения: "))
+            new_text = input("Введите новый текст для строки: ")
+            result = edit_line(filename, line_number, new_text)
+            print(result)
         else:
             print("Некорректный ввод. Пожалуйста, попробуйте снова.")
 
