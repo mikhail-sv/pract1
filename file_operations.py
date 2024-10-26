@@ -24,3 +24,11 @@ def delete_last_lines(filename, num_lines=1):
             file.writelines(new_lines)
     except FileNotFoundError:
         return "Файл не найден."
+
+def clear_file(filename):
+    """Очистка содержимого файла."""
+    try:
+        open(filename, 'w').close()  # Очищаем файл
+        return f"Файл '{filename}' очищен."
+    except Exception as e:
+        return str(e)
