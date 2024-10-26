@@ -1,4 +1,4 @@
-from file_operations import read_file, write_file, delete_last_lines
+from file_operations import read_file, write_file, delete_last_lines, search_line
 from utils import get_user_input
 
 def main():
@@ -22,6 +22,12 @@ def main():
         elif action == 'q':
             print("Выход из программы.")
             break
+        elif action == 's':
+            search_text = input("Введите текст для поиска: ")
+            matches = search_line(filename, search_text)
+            print("Результаты поиска:")
+            for match in matches:
+                print(match.strip())
         else:
             print("Некорректный ввод. Пожалуйста, попробуйте снова.")
 

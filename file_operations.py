@@ -24,3 +24,14 @@ def delete_last_lines(filename, num_lines=1):
             file.writelines(new_lines)
     except FileNotFoundError:
         return "Файл не найден."
+
+def search_line(filename, search_text):
+    """Поиск строки в текстовом файле."""
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+
+        matches = [line for line in lines if search_text in line]
+        return matches if matches else ["Совпадений не найдено."]
+    except FileNotFoundError:
+        return "Файл не найден."
