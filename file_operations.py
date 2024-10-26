@@ -49,3 +49,11 @@ def edit_line(filename, line_number, new_text):
             return "Номер строки вне диапазона."
     except FileNotFoundError:
         return "Файл не найден."
+
+def clear_file(filename):
+    """Очистка содержимого файла."""
+    try:
+        open(filename, 'w').close()  # Очищаем файл
+        return f"Файл '{filename}' очищен."
+    except Exception as e:
+        return str(e)
