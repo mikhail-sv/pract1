@@ -68,7 +68,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install sphinx
-          pip install sphinx-rtd-theme  # Optional: theme for documentation
 
       - name: Build Sphinx documentation
         run: |
@@ -77,7 +76,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: main
+          branch: gh-pages
           folder: docs/_build/html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
