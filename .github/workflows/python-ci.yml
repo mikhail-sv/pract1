@@ -52,6 +52,7 @@ jobs:
           pytest --maxfail=1 --disable-warnings -q  # Запустить тесты и прекратить проверку при первой ошибке
 
   automerge:
+    runs-on: ubuntu-latest
     needs: test
     steps:
       - name: Enable Pull Request Automerge
