@@ -6,10 +6,12 @@ def read_file(filename):
     except FileNotFoundError:
         return "Файл не найден."
 
+
 def write_file(filename, text):
     """Запись текста в текстовый файл."""
     with open(filename, 'a', encoding='utf-8') as file:
         file.write(text + '\n')
+
 
 def delete_last_lines(filename, num_lines=1):
     """Удаление последних строк из текстового файла."""
@@ -25,6 +27,7 @@ def delete_last_lines(filename, num_lines=1):
     except FileNotFoundError:
         return "Файл не найден."
 
+
 def search_line(filename, search_text):
     """Поиск строки в текстовом файле."""
     try:
@@ -34,6 +37,7 @@ def search_line(filename, search_text):
         return matches if matches else ["Совпадений не найдено."]
     except FileNotFoundError:
         return "Файл не найден."
+
 
 def edit_line(filename, line_number, new_text):
     """Изменение строки в текстовом файле."""
@@ -49,6 +53,7 @@ def edit_line(filename, line_number, new_text):
             return "Номер строки вне диапазона."
     except FileNotFoundError:
         return "Файл не найден."
+
 
 def clear_file(filename):
     """Очистка содержимого файла."""

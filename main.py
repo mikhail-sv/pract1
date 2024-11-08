@@ -1,13 +1,17 @@
-from file_operations import read_file, write_file, delete_last_lines, edit_line, search_line, clear_file
-
+from file_operations import (
+    read_file, write_file, delete_last_lines, edit_line,
+    search_line, clear_file
+)
 from utils import get_user_input
+
 
 def main():
     filename = 'example.txt'
 
     while True:
         action = get_user_input(
-            "Введите 'r' для чтения файла, 'w' для записи, 'd' для удаления последних строк, "
+            "Введите 'r' для чтения файла, 'w' для записи, "
+            "'d' для удаления последних строк, "
             "'e' для изменения строки, 's' для поиска строки, "
             "'cl' для очистки файла, 'q' для выхода: "
         )
@@ -43,6 +47,7 @@ def main():
             print(result)
         else:
             print("Некорректный ввод. Пожалуйста, попробуйте снова.")
+
 
 if __name__ == "__main__":
     main()
